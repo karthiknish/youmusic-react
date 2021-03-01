@@ -87,12 +87,18 @@ const RelatedVideos = ({
             // replace
             // to={{ pathname: "/play", search: `?id=${song.id.videoId}` }}
           >
-            <ListItemIcon>
-              <MusicVideo style={{ color: "#fff" }} />
-            </ListItemIcon>
+            {song.snippet ? (
+              <ListItemIcon>
+                <MusicVideo style={{ color: "#fff" }} />
+              </ListItemIcon>
+            ) : (
+              <></>
+            )}
+
+            {console.table(song)}
             <ListItemText
-              primary={song.snippet.title.slice(0, 40)}
-              secondary={song.snippet.channelTitle.slice(0, 40)}
+              primary={song?.snippet?.title.slice(0, 40)}
+              secondary={song?.snippet?.channelTitle.slice(0, 40)}
             />
           </ListItem>
         </motion.li>
